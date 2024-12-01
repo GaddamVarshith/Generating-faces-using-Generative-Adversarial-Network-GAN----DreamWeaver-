@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes moveUpwards {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(-100%); }
+}
+
+@keyframes moveDownwards {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 15px rgba(251, 113, 133, 0.5); }
+  50% { box-shadow: 0 0 30px rgba(251, 113, 133, 0.8); }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply text-gray-900 bg-gradient-to-b from-gray-900 via-black to-gray-900;
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-dots-up {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 50%;
+  bottom: 0;
+  background-image: radial-gradient(#ffffff 1.5px, transparent 1.5px);
+  background-size: 30px 30px;
+  animation: moveUpwards 30s linear infinite;
+  opacity: 0.05;
+}
+
+.floating-dots-down {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(#ffffff 1.5px, transparent 1.5px);
+  background-size: 30px 30px;
+  animation: moveDownwards 30s linear infinite;
+  opacity: 0.05;
+}
+
+.tech-card {
+  @apply backdrop-blur-md bg-white/95 border-3 border-black/15 shadow-elegant hover:shadow-elegant-hover transition-all duration-300;
+}
+
+.capture-btn {
+  @apply relative overflow-hidden transition-all duration-300;
+}
+
+.capture-btn:hover {
+  @apply shadow-rose;
+}
+
+.capture-btn:hover .btn-icon {
+  @apply scale-110;
+}
+
+.capture-btn:hover .btn-text {
+  @apply opacity-0;
+}
+
+.sparkle {
+  @apply absolute w-1 h-1 bg-white rounded-full opacity-0;
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+.sparkle:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+.sparkle:nth-child(2) { top: 60%; left: 40%; animation-delay: 0.2s; }
+.sparkle:nth-child(3) { top: 40%; left: 60%; animation-delay: 0.4s; }
+.sparkle:nth-child(4) { top: 70%; left: 70%; animation-delay: 0.6s; }
+.sparkle:nth-child(5) { top: 30%; left: 80%; animation-delay: 0.8s; }
+
+.glass-card {
+  @apply backdrop-blur-md bg-white/90 border-3 border-black/15 shadow-elegant hover:shadow-elegant-hover transition-all duration-300;
+}
+
+.section-gradient {
+  @apply bg-gradient-to-b from-gray-900 via-black to-gray-900 relative overflow-hidden;
+}
